@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>289569686727-ukkbdhr4cnl1l059sa10c60cs5p5ea8b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.289569686727-ukkbdhr4cnl1l059sa10c60cs5p5ea8b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCT_N10e4FaSpOOS8wTJNA-3ALZ1t2-SXg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>289569686727</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.msftessthsapp.microsoftEssthsApp</string>
+	<key>PROJECT_ID</key>
+	<string>msft-essths-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>msft-essths-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:289569686727:ios:cb18ad283abcc672dfeae2</string>
+</dict>
+</plist>

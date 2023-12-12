@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "289569686727",
+    "project_id": "msft-essths-app",
+    "storage_bucket": "msft-essths-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289569686727:android:e3892558990386f5dfeae2",
+        "android_client_info": {
+          "package_name": "com.msftessthsapp.microsoft_essths_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289569686727-mbqv2eoiv0e3k5qlq8686p8bma8jtgpc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgXbTDSUNaBoOL-jYYigXGP3d3nlW7l4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289569686727-mbqv2eoiv0e3k5qlq8686p8bma8jtgpc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
