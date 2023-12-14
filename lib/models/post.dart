@@ -1,17 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Post {
+  late String id;
   late String title;
   late String description;
   late String type;
   late String body;
   late String authorEmail;
 
-  Post({required this.title, required this.description, required this.type, required this.body, required this.authorEmail});
+  Post({required this.id, required this.title, required this.description, required this.type, required this.body, required this.authorEmail});
 
   factory Post.fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data();
     return Post(
+      id: snapshot.id,
       title: data?['Title'],
       description: data?['Description'],
       type: data?['Type'],
@@ -22,6 +24,7 @@ class Post {
   }
 
   Post.fromJson(Map<String, dynamic> json) {
+    id = json['Id'];
     title = json['Title'];
     description = json['Description'];
     type = json['Type'];
@@ -29,8 +32,9 @@ class Post {
     authorEmail = json['Author Email'];
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toFirestore() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['Id'] = this.id;
     data['Title'] = this.title;
     data['Description'] = this.description;
     data['Type'] = this.type;

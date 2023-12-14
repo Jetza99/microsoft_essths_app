@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:microsoft_essths_app/global/common/toast.dart';
 import 'models/userapp.dart';
-import 'package:page_transition/page_transition.dart';
 
 import 'user_manager.dart';
 import 'newsfeed_screen.dart';

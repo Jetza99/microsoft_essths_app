@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:microsoft_essths_app/firebase_options.dart';
+import 'package:microsoft_essths_app/newsfeed_screen.dart';
 
 
 import 'signup_screen.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/',
+      routes: {'/Newsfeed': (context) => NewsFeedScreen()},
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
