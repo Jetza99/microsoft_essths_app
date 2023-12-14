@@ -6,7 +6,7 @@ import 'models/post.dart';
 
 import 'package:page_transition/page_transition.dart';
 import 'colors/colors.dart';
-import 'main.dart';
+
 
 
 
@@ -49,7 +49,7 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
     color: tertiary,
   );
 
-  final List<Widget> _widgetOptions = <Widget>[
+  late final List<Widget> _widgetOptions = <Widget>[
     SizedBox.expand(
       child: Padding(
         padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
@@ -67,18 +67,39 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
               ),
             ),
             Divider(),
-            StreamBuilder(
-                stream: FirebaseFirestore.instance.collection('Posts').snapshots(),
-                builder: (context, snapshot) {
-                    if (!snapshot.hasData) {
-                      return Text(
-                        'No Data...',
+            FutureBuilder(
+                future: getPosts(),
+                builder: (context, AsyncSnapshot<dynamic> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.deepPurpleAccent,
+                      ),
+                    );
+                  }
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          'An ${snapshot.error} occurred',
+                          style: const TextStyle(fontSize: 18, color: Colors.red),
+                        ),
                       );
-                }else{
-                      var items = snapshot.data?.docs;
-                      return ArticleCard(title: items?[0]["Title"]);
+                    } else if (snapshot.hasData) {
+                      List<Post> posts = snapshot.data;
+                      return ArticleCard(
+                        title: posts[0].title,
+                        type: posts[0].type,
+                        description: posts[0].description,
+                      );
+
                     }
-  },
+                  }
+
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
             ),
             //ArticleCard(title: 'hello',),
 
@@ -136,7 +157,13 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
                 final data = snapshot.data;
                 if(data.author == true){
                   return FloatingActionButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              child: Placeholder(),
+                              type: PageTransitionType.rightToLeft));
+                    },
                     backgroundColor: primary,
                     child: Icon(Icons.add, color: tertiary),
                   );
@@ -267,9 +294,13 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
 
 class ArticleCard extends StatelessWidget {
   final String title;
+  final String type;
+  final String description;
   const ArticleCard({
     super.key,
-    required this.title
+    required this.title,
+    required this.type,
+    required this.description,
   });
 
   @override
@@ -296,7 +327,7 @@ class ArticleCard extends StatelessWidget {
             ),
             SizedBox(width: 5),
             Text(
-              'Type',
+              type,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
@@ -306,8 +337,8 @@ class ArticleCard extends StatelessWidget {
             ),
           ],
         ),
-        const Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan urna in dui feugiat maximus.',
+         Text(
+          description,
           style: TextStyle(
             fontFamily: 'Lato',
             fontWeight: FontWeight.w200,

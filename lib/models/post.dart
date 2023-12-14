@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Post {
-  String? title;
-  String? description;
-  String? type;
-  String? body;
-  String? authorEmail;
+  late String title;
+  late String description;
+  late String type;
+  late String body;
+  late String authorEmail;
 
-  Post({this.title, this.description, this.type, this.body, this.authorEmail});
+  Post({required this.title, required this.description, required this.type, required this.body, required this.authorEmail});
 
   factory Post.fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data();
