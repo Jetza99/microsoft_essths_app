@@ -51,9 +51,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,33 +58,34 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: primary,
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(35, 50, 0, 0),
-                width: 139,
-                height: 32,
-                child: Image(
-                  image: AssetImage('assets/logos/horizontal_white.png'),
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(35, 70, 0, 0),
-                child: Text(
-                  'Welcome to our official club App!'.toUpperCase(),
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.white,
-                    fontFamily: 'Montserrat',
+          child: Padding(
+            padding: const EdgeInsets.all(35.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 139,
+                  height: 32,
+                  child: Image(
+                    image: AssetImage('assets/logos/horizontal_white.png'),
+                    fit: BoxFit.contain,
                   ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(35, 15, 0, 0),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                SizedBox(height: 35,),
+                Container(
+                  child: Text(
+                    'Welcome to our official club App!'.toUpperCase(),
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                ),
+                SizedBox(height: 35,),
+                Container(
+
                   child: Text(
                     'Please log in to stay connected with the vibrant community of tech enthusiasts at ESSTHS.',
                     style: TextStyle(
@@ -97,69 +95,71 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-              ),
-              Center(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
-                  child: ElevatedButton(
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Lato',
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(secondary),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5.0))),
+                SizedBox(height: 35,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      child: ElevatedButton(
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Lato',
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold),
                         ),
-                        fixedSize: MaterialStateProperty.all(Size(320, 55))),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                              child: SignUpScreen(),
-                              type: PageTransitionType.rightToLeft));
-                    },
-                  ),
-                ),
-              ),
-              Center(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  child: ElevatedButton(
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                          color: secondary,
-                          fontFamily: 'Lato',
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(secondary),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(5.0))),
+                            ),
+                            fixedSize: MaterialStateProperty.all(Size(320, 55))),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: SignUpScreen(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                      ),
                     ),
-                    style: ButtonStyle(
-                        backgroundColor:
+                    SizedBox(height: 25,),
+                    Container(
+                      child: ElevatedButton(
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                              color: secondary,
+                              fontFamily: 'Lato',
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        style: ButtonStyle(
+                            backgroundColor:
                             MaterialStateProperty.all(Colors.white),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                              borderRadius:
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius:
                                   BorderRadius.all(Radius.circular(5.0))),
-                        ),
-                        fixedSize: MaterialStateProperty.all(Size(320, 55))),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                              child: SignInScreen(),
-                              type: PageTransitionType.rightToLeft));
-                    },
-                  ),
+                            ),
+                            fixedSize: MaterialStateProperty.all(Size(320, 55))),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  child: SignInScreen(),
+                                  type: PageTransitionType.rightToLeft));
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+
+              ],
+            ),
           ),
         ),
       ),

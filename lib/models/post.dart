@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uuid/uuid.dart';
 
 class Post {
   late String id;
@@ -8,7 +9,12 @@ class Post {
   late String body;
   late String authorEmail;
 
-  Post({required this.id, required this.title, required this.description, required this.type, required this.body, required this.authorEmail});
+  Post({String? id,
+    required this.title,
+    required this.description,
+    required this.type,
+    required this.body,
+    required this.authorEmail}): id = id ?? Uuid().v4();
 
   factory Post.fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data();

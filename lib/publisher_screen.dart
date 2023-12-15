@@ -87,6 +87,8 @@ class _PublisherScreenState extends State<PublisherScreen> {
                         fontSize: 16,
                       ),
                     ),
+                    maxLength: 30,
+
                   ),
                   SizedBox(height: 25,),
                   Text(
@@ -149,6 +151,7 @@ class _PublisherScreenState extends State<PublisherScreen> {
                     ),
                     minLines: 1,
                     maxLines: 5,
+                    maxLength: 200,
                   ),
                   SizedBox(height: 25,),
                   Text(
@@ -212,7 +215,7 @@ class _PublisherScreenState extends State<PublisherScreen> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.pushReplacementNamed(context, '/Newsfeed');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -241,7 +244,7 @@ class _PublisherScreenState extends State<PublisherScreen> {
     String body = bodyController.text;
     String authorEmail = authorController.text;
 
-    Post post = Post(id: '', title: title, description: description, type: type, body: body, authorEmail: authorEmail);
+    Post post = Post(title: title, description: description, type: type, body: body, authorEmail: authorEmail);
     await db.collection('posts').add(post.toFirestore());
     Navigator.pop(context);
 

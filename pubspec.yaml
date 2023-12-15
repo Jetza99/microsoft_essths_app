@@ -40,6 +40,8 @@ dependencies:
   firebase_core: ^2.23.0
   fluttertoast: ^8.2.4
   cloud_firestore: ^4.13.5
+  uuid: ^4.2.2
+  url_launcher: ^6.2.2
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +72,8 @@ flutter:
 
   assets:
     - assets/logos/horizontal_white.png
+    - assets/logos/mlsa_logo.png
+    - assets/img/mlsa_p.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -105,6 +109,7 @@ flutter:
       fonts:
         - asset: assets/fonts/Lato-Light.ttf
         - asset: assets/fonts/Lato-Bold.ttf
+        - asset: assets/fonts/Lato-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
